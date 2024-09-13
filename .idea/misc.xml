@@ -5,6 +5,11 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/springCloud_Demo/pom.xml" />
+        <option value="$PROJECT_DIR$/springCloud_Demo/user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/springCloud_Demo/order_service/pom.xml" />
+        <option value="$PROJECT_DIR$/rocketMqStudyDemo01/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDataJpa/pom.xml" />
       </list>
     </option>
   </component>
