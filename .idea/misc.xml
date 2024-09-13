@@ -11,10 +11,12 @@
         <option value="$PROJECT_DIR$/rocketMqStudyDemo01/pom.xml" />
         <option value="$PROJECT_DIR$/SpringDataJpa/pom.xml" />
         <option value="$PROJECT_DIR$/SpringBootRedisDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBootRedisDemo1/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/SpringBootRedisDemo/pom.xml" />
         <option value="$PROJECT_DIR$/springCloud_Demo/order-service/pom.xml" />
       </set>
     </option>

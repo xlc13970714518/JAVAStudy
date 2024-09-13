@@ -2,7 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SpringBootRedisDemo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SpringBootRedisDemo1" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/SpringDataJpa" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/rocketMqStudyDemo01" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/springCloud_Demo" vcs="Git" />
