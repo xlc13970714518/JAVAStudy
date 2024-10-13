@@ -8,10 +8,10 @@ import javax.persistence.*;
 @Data
 @Entity(name = "employee")
 @Accessors(chain = true)
-public class Employee {
+public class EmployeePo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "last_name")
     private String lastName;
@@ -20,10 +20,10 @@ public class Employee {
     private String email;
 
     @Column(name = "gender")
-    private String gender;
+    private Integer gender;
 
     @Column(name = "department")
-    private String department;
+    private Long department;
 
     @Column(name = "birth")
     private String birth;

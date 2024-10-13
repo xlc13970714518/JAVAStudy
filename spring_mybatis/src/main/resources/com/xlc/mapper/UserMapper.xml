@@ -4,7 +4,7 @@
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xlc.mapper.UserMapper">
 
-<resultMap id="employee" type="com.xlc.pojo.Employee">
+<resultMap id="employeePo" type="com.xlc.pojo.Employee">
     <id column="id" property="id"></id>
     <result column="last_name" property="lastName"></result>
     <result column="email" property="email"></result>
@@ -12,8 +12,8 @@
     <result column="department" property="department"></result>
     <result column="birth" property="birth"></result>
 </resultMap>
-<select id="selectAll" resultMap="employee">
-    select id, last_name, email,gender, department, birth from employee;
+<select id="selectAll" resultMap="employeePo">
+    select id, last_name, email,gender, department, birth from employeePo;
 </select>
 
 </mapper>

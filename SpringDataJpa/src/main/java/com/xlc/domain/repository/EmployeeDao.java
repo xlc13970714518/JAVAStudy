@@ -1,6 +1,6 @@
 package com.xlc.domain.repository;
 
-import com.xlc.domain.entity.Employee;
+import com.xlc.domain.entity.EmployeePo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -17,8 +17,8 @@ import java.util.List;
  *
  * */
 
-public interface EmployeeDao extends JpaRepository <Employee, Object>{
-    List<Employee> findByLastName(String lastName);
+public interface EmployeeDao extends JpaRepository <EmployeePo, Object>{
+    List<EmployeePo> findByLastName(String lastName);
 
     Long deleteById(Integer id);
 
@@ -26,12 +26,12 @@ public interface EmployeeDao extends JpaRepository <Employee, Object>{
      * 这是使用正常的 sql 语句去查询:name 是通过 @Param 注解去确定的*/
     @Query(nativeQuery = true, value = "select id, last_name,email,gender,department,birth\n" +
             "from employee where  gender = :gender ")
-    List<Employee> getByGender(@Param("gender") String gender);
+    List<EmployeePo> getByGender(@Param("gender") String gender);
 
     /**
      * 使用的 JPQL 的 sql 形式 from 后面是类名
      * ?1 代表是的是方法中的第一个参数*/
     @Query(value = "select e\n" +
             "from employee e where  e.lastName=?1  and e.gender = ?2 ")
-    List<Employee> getByLastNameAndGender(String lastName, String gender);
+    List<EmployeePo> getByLastNameAndGender(String lastName, String gender);
 }
