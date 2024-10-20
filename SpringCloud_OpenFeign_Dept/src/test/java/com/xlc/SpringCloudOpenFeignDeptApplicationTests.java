@@ -1,10 +1,10 @@
-package com.xlc.springcloud_openfeign_employee;
+package com.xlc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringCloudOpenFeignEmployeeApplicationTests {
+class SpringCloudOpenFeignDeptApplicationTests {
 
     @Test
     void contextLoads() {
