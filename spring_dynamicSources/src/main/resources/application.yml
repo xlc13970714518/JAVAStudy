@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    dynamic:
+      primary: primary  # 设置默认数据源
+      strict: false  # 是否严格检查数据源存在
+      datasource:
+        primary:
+          url: jdbc:mysql://localhost:3306/cloud_order?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
+#        secondary:
+#          url: jdbc:postgresql://localhost:5432/secondary_db
+#          username: postgres
+#          password: postgres
+#          driver-class-name: org.postgresql.Driver
+        secondary:
+          url: jdbc:mysql://localhost:3306/cloud_user?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+
