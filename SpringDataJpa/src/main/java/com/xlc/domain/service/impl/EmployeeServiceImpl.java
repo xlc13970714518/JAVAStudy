@@ -14,6 +14,7 @@ import com.xlc.domain.service.EmployeeService;
 import com.xlc.domain.vo.DepartmentVo;
 import com.xlc.domain.vo.EmployeeVo;
 import com.xlc.domain.vo.Gender;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@Slf4j
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
@@ -55,6 +57,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+
     public EmployeeVo findEmployeeById(Long id) {
         EmployeePo employeePo = jpaQueryFactory.selectFrom(QEmployeePo.employeePo)
                 .where(QEmployeePo.employeePo.id.eq(id)).fetchOne();

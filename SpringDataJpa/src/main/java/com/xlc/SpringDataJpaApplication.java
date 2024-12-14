@@ -3,6 +3,7 @@ package com.xlc;
 import com.xlc.domain.repository.EmployeeDao;
 import com.xlc.domain.service.EmployeeService;
 import com.xlc.domain.vo.EmployeeVo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +12,7 @@ import org.springframework.context.ApplicationContext;
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication
+@Slf4j
 public class SpringDataJpaApplication {
     @Autowired
     static EmployeeDao employeeDao;
