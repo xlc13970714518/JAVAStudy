@@ -19,6 +19,9 @@ public class EmployeeController {
     EmployeeService employeeService;
     @RequestMapping("/detail")
     public EmployeeVo getEmployeeById(@Param("id") Long id){
+        // 每次请求就是不同的线程
+        Thread currentThread = Thread.currentThread();
+        System.out.println(currentThread.getName());
         return employeeService.findEmployeeById(id);
     }
     

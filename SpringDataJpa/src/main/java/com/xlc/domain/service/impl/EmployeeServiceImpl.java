@@ -35,6 +35,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     DepartmentDao departmentDao;
+
+    private static ThreadLocal<Map<String, Object>> threadLocal = new ThreadLocal<Map<String, Object>>();
     @Override
     public Long addOrUpdateEmployee(EmployeeVo employeeVo) {
         if (employeeVo.getId() == null) {
@@ -59,8 +61,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
 
     public EmployeeVo findEmployeeById(Long id) {
+        // 每次请求就是不同的线程
+        Thread currentThread = Thread.currentThread();
+        System.out.println(currentThread.getName());
         EmployeePo employeePo = jpaQueryFactory.selectFrom(QEmployeePo.employeePo)
                 .where(QEmployeePo.employeePo.id.eq(id)).fetchOne();
+        // 每次请求都会开启一个线程，可配合ThreadLocal使用
+         if (threadLocal.get() == null) {
+             HashMap<String, Object> stringObjectHashMap = new HashMap<String, Object>();
+             stringObjectHashMap.put(employeePo.getId().toString(),currentThread);
+             threadLocal.set(stringObjectHashMap);
+         }
+        System.out.println("currentThread:" + threadLocal.get().get(employeePo.getId().toString()));
         EmployeeVo employeeVo = new EmployeeVo();
         BeanUtils.copyProperties(employeePo, employeeVo);
         ObjectMapper objectMapper = new ObjectMapper();
