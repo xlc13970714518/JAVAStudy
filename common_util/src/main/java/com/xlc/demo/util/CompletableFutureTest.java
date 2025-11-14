@@ -1,5 +1,7 @@
 package com.xlc.demo.util;
 
+import com.xlc.demo.model.User;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,15 +12,22 @@ import java.util.stream.Collectors;
 public class CompletableFutureTest {
     private static ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 5,
             60, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
-    void test1() {
-        List<Integer> ids = new ArrayList<>();
+    static void  test1() {
+        List<User> users = new ArrayList<>();
+        users.add(new User("xlc", 18));
+        users.add(new User("zhangSan", 19));
+        users.add(new User("lisi", 20));
+        users.add(new User("wangWu", 21));
+
         List<CompletableFuture<Map<String, Integer>>> futures = new ArrayList<>();
 
-        for (Integer id : ids) {
+        for (User user : users) {
             CompletableFuture<Map<String, Integer>> future = CompletableFuture.supplyAsync(() -> {
                 // 模拟查询es数据
                 Map<String, Integer> resultMap = new HashMap<>();
-                resultMap.put("feture", id);
+                update1( user);
+                update2( user);
+                resultMap.put(user.getName(),user.getAge());
                 return resultMap;
             }, executor);
             futures.add(future);
@@ -48,9 +57,10 @@ public class CompletableFutureTest {
         /*使用thenApply方法时子任务与父任务使用的是同一个线程，而thenApplyAsync在子任务中是另起一个线程执行任务，
         并且thenApplyAsync可以自定义线程池，默认的使用ForkJoinPool.commonPool()线程池。*/
         // testThenApplyAsync();
-        testThenApplyAsync();
+        //testThenApplyAsync();
         // testThenApply();
-        testThenApply();
+        //testThenApply();
+            test1();
         }
 
         static void testThenApplyAsync() throws ExecutionException, InterruptedException{
@@ -86,5 +96,15 @@ public class CompletableFutureTest {
             System.out.println("cf1结果->" + cf1.get());
             //等待任务2执行完成
             System.out.println("cf2结果->" + cf2.get());
+        }
+
+        public static void update1(User user) {
+         String name = user.getName();
+            System.out.println("update1 name:" + name);
+        }
+
+        public static void update2(User user) {
+         String name = user.getAge().toString();
+            System.out.println("update2 age:" + name);
         }
 }
